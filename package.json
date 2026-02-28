@@ -1,0 +1,20 @@
+{
+  "name": "fish-alhatemi-travel",
+  "version": "1.0.0",
+  "description": "Fish ALHATEMI Travel Agent - Flight Booking & Travel Services",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js"
+  },
+  "keywords": ["travel", "flight-booking", "ethiopia", "addis-ababa"],
+  "author": "Fish ALHATEMI Travel Agent",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2",
+    "nodemailer": "^6.9.7"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.2"
+  }
+}
