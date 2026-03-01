@@ -171,28 +171,31 @@
                         <i class="fas fa-phone"></i>
                         <div>
                             <strong>Mobile</strong>
-                            <p>+251 977 20 90 90</p>
+                            <p><a href="tel:+251977209090" class="contact-link">+251 977 20 90 90</a></p>
                         </div>
                     </div>
                     <div class="contact-item">
                         <i class="fas fa-phone-alt"></i>
                         <div>
                             <strong>Alternative</strong>
-                            <p>+251 967 777 750<br>+251 717 41 00 46</p>
+                            <p>
+                                <a href="tel:+251967777750" class="contact-link">+251 967 777 750</a><br>
+                                <a href="tel:+251717410046" class="contact-link">+251 717 41 00 46</a>
+                            </p>
                         </div>
                     </div>
                     <div class="contact-item">
                         <i class="fab fa-whatsapp"></i>
                         <div>
                             <strong>WhatsApp</strong>
-                            <p>+251 977 20 90 90</p>
+                            <p><a href="https://wa.me/251977209090" target="_blank" class="contact-link">+251 977 20 90 90</a></p>
                         </div>
                     </div>
                     <div class="contact-item">
                         <i class="fab fa-telegram"></i>
                         <div>
                             <strong>Telegram</strong>
-                            <p>+251 977 20 90 90</p>
+                            <p><a href="https://t.me/+251977209090" target="_blank" class="contact-link">+251 977 20 90 90</a></p>
                         </div>
                     </div>
                     <div class="contact-item">
@@ -211,32 +214,122 @@
                     </div>
                 </div>
                 <div class="contact-form">
-                    <h3>Send Us a Message</h3>
+                    <h3>Flight Booking Request Form</h3>
                     <form id="inquiryForm">
-                        <div class="form-group">
-                            <input type="text" name="name" placeholder="Your Name" required>
+                        <!-- Trip Type -->
+                        <div class="form-section">
+                            <label class="form-label">Trip Type *</label>
+                            <div class="radio-group">
+                                <label class="radio-label">
+                                    <input type="radio" name="tripType" value="One Way" required>
+                                    <span>One Way</span>
+                                </label>
+                                <label class="radio-label">
+                                    <input type="radio" name="tripType" value="Round Trip" required>
+                                    <span>Round Trip</span>
+                                </label>
+                            </div>
                         </div>
-                        <div class="form-group">
-                            <input type="email" name="email" placeholder="Your Email" required>
+
+                        <!-- Flight Details -->
+                        <div class="form-section">
+                            <label class="form-label">Flight Details *</label>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <input type="text" name="from" placeholder="From (City/Airport)" required>
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" name="to" placeholder="To (City/Airport)" required>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label class="input-label">Departure Date</label>
+                                    <input type="date" name="departureDate" required>
+                                </div>
+                                <div class="form-group" id="returnDateGroup">
+                                    <label class="input-label">Return Date</label>
+                                    <input type="date" name="returnDate">
+                                </div>
+                            </div>
                         </div>
-                        <div class="form-group">
-                            <input type="tel" name="phone" placeholder="Your Phone" required>
+
+                        <!-- Passengers -->
+                        <div class="form-section">
+                            <label class="form-label">Passenger Information *</label>
+                            <p class="form-hint">Please enter full names exactly as they appear on passports/IDs</p>
+                            
+                            <div class="passenger-category">
+                                <div class="category-header">
+                                    <h4><i class="fas fa-user"></i> Adults (12+ Years)</h4>
+                                    <button type="button" class="add-passenger-btn" data-type="adult">
+                                        <i class="fas fa-plus"></i> Add Adult
+                                    </button>
+                                </div>
+                                <div id="adultsContainer" class="passengers-list"></div>
+                            </div>
+
+                            <div class="passenger-category">
+                                <div class="category-header">
+                                    <h4><i class="fas fa-child"></i> Children (2-11 Years)</h4>
+                                    <button type="button" class="add-passenger-btn" data-type="child">
+                                        <i class="fas fa-plus"></i> Add Child
+                                    </button>
+                                </div>
+                                <div id="childrenContainer" class="passengers-list"></div>
+                            </div>
+
+                            <div class="passenger-category">
+                                <div class="category-header">
+                                    <h4><i class="fas fa-baby"></i> Infants (0-23 Months)</h4>
+                                    <button type="button" class="add-passenger-btn" data-type="infant">
+                                        <i class="fas fa-plus"></i> Add Infant
+                                    </button>
+                                </div>
+                                <div id="infantsContainer" class="passengers-list"></div>
+                            </div>
                         </div>
-                        <div class="form-group">
-                            <select name="service" required>
-                                <option value="">Select Service</option>
-                                <option value="Domestic Flight">Domestic Flight</option>
-                                <option value="International Flight">International Flight</option>
-                                <option value="Flight Extension">Flight Extension</option>
-                                <option value="Rebooking">Rebooking</option>
-                                <option value="Refund">Refund Request</option>
-                                <option value="General Inquiry">General Inquiry</option>
-                            </select>
+
+                        <!-- Contact Information -->
+                        <div class="form-section">
+                            <label class="form-label">Contact Information *</label>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <input type="tel" name="phone" placeholder="Phone Number (max 13 digits)" pattern="[\+]?[0-9]{10,13}" maxlength="14" required>
+                                </div>
+                                <div class="form-group">
+                                    <input type="email" name="email" placeholder="Email Address" required>
+                                </div>
+                            </div>
                         </div>
-                        <div class="form-group">
-                            <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+
+                        <!-- Special Requests -->
+                        <div class="form-section">
+                            <label class="form-label">Special Requests</label>
+                            <div class="checkbox-group">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="extraBaggage" value="yes">
+                                    <span>Extra Baggage</span>
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="specialMeal" value="yes">
+                                    <span>Special Meal</span>
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="wheelchair" value="yes">
+                                    <span>Wheelchair</span>
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="flexibleDates" value="yes">
+                                    <span>Flexible Dates</span>
+                                </label>
+                            </div>
+                            <div class="form-group">
+                                <textarea name="additionalRequests" rows="3" placeholder="Other special requests or notes..."></textarea>
+                            </div>
                         </div>
-                        <button type="submit" class="btn btn-primary">Send Message</button>
+
+                        <button type="submit" class="btn btn-primary btn-submit">Submit Booking Request</button>
                     </form>
                     <div id="formMessage"></div>
                 </div>
